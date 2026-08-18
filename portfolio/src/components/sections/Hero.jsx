@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import SujitKale from "../../assets/SujitKale.png";
-import resume from "../../data/resume.pdf";
+import resume from "../../data/Sujit_Kale_resume.pdf";
 
 const roles = [
   "Full-Stack Developer...",
@@ -51,7 +51,7 @@ function Hero() {
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
-              href={Sujit_Kale_resume}
+              href={resume}
               download
               className="glow-button inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all"
             >
