@@ -3,7 +3,7 @@ function About() {
     <section id="about" className="px-4 py-16">
       <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: "var(--accent)" }}>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
             About
           </p>
           <h2 className="mt-3 text-2xl font-semibold md:text-3xl">
@@ -12,7 +12,7 @@ function About() {
         </div>
 
         <div
-          className="glow-card rounded-lg border p-6"
+          className="glow-card rounded-xl border p-8"
           style={{
             backgroundColor: "var(--surface)",
             borderColor: "var(--border)",

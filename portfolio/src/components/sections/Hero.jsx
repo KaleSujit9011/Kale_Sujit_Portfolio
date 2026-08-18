@@ -38,7 +38,7 @@ function Hero() {
           </p>
 
           <h1 className="max-w-3xl text-4xl font-bold leading-tight md:text-6xl">
-            Building clean web apps with reliable backend systems.
+            Building clean web apps with <span className="text-gradient">reliable backend systems.</span>
           </h1>
 
           <p
@@ -51,24 +51,16 @@ function Hero() {
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
-              href={resume}
+              href={Sujit_Kale_resume}
               download
-              className="glow-button inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5"
-              style={{
-                backgroundColor: "var(--primary)",
-                boxShadow: "0 16px 35px color-mix(in srgb, var(--primary) 24%, transparent)",
-              }}
+              className="glow-button inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all"
             >
               Download resume
             </a>
 
             <a
               href="#projects"
-              className="glow-button inline-flex items-center justify-center rounded-lg border px-5 py-2.5 text-sm font-semibold transition hover:-translate-y-0.5"
-              style={{
-                borderColor: "var(--border)",
-                backgroundColor: "var(--surface)",
-              }}
+              className="glow-button-outline inline-flex items-center justify-center rounded-lg border px-6 py-3 text-sm font-semibold transition-all"
             >
               View projects
             </a>

@@ -9,7 +9,7 @@ function Projects() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: "var(--accent)" }}>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
               Projects
             </p>
             <h2 className="mt-3 text-2xl font-semibold md:text-3xl">
