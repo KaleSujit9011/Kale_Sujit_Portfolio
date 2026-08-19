@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SujitKale from "../../assets/SujitKale.png";
+import ProfessionalPhoto from "../../assets/professional.png";
 import resume from "../../data/Sujit_Kale_resume.pdf";
 
 const roles = [
@@ -13,6 +14,7 @@ const roles = [
 
 function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -66,9 +68,7 @@ function Hero() {
             </a>
           </div>
 
-          <div
-            className="mt-8 grid max-w-xl gap-3 sm:grid-cols-3"
-          >
+          <div className="mt-8 grid max-w-xl gap-3 sm:grid-cols-3">
             {[
               ["Frontend", "React UI"],
               ["Backend", "API design"],
@@ -91,29 +91,78 @@ function Hero() {
           </div>
         </div>
 
+        {/* ── Photo card with hover-swipe effect ── */}
         <div
-          className="glow-card relative rounded-lg border p-3"
+          className="glow-card relative rounded-lg border p-3 overflow-hidden"
           style={{
             backgroundColor: "var(--surface)",
             borderColor: "var(--border)",
             boxShadow: "var(--shadow)",
           }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
         >
+          {/* Hover hint badge */}
+          <div
+            className="absolute top-5 right-5 z-20 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-medium backdrop-blur-md"
+            style={{
+              backgroundColor: "color-mix(in srgb, var(--primary) 18%, transparent)",
+              border: "1px solid color-mix(in srgb, var(--primary) 35%, transparent)",
+              color: "var(--primary)",
+              transition: "opacity 0.3s ease",
+              opacity: hovered ? 0 : 1,
+            }}
+          >
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+            Hover to swipe
+          </div>
+
+          {/* ─ Photo 1 (professional) — slides OUT to the left on hover ─ */}
+          <img
+            src={ProfessionalPhoto}
+            alt="Sujit Kale -Professional"
+            className="aspect-[4/5] w-full rounded-lg object-cover object-top"
+            style={{
+              position: "relative",
+              zIndex: 1,
+              transition: "transform 0.55s cubic-bezier(0.77,0,0.18,1), opacity 0.45s ease",
+              transform: hovered ? "translateX(-105%)" : "translateX(0%)",
+              opacity: hovered ? 0 : 1,
+            }}
+          />
+
+          {/* ─ Photo 2 (casual) — slides IN from the right on hover ─ */}
           <img
             src={SujitKale}
-            alt="Nana Kale"
+            alt="Sujit Kale"
             className="aspect-[4/5] w-full rounded-lg object-cover object-top"
+            style={{
+              position: "absolute",
+              inset: "0.75rem",            /* matches p-3 padding */
+              zIndex: 2,
+              transition: "transform 0.55s cubic-bezier(0.77,0,0.18,1), opacity 0.45s ease",
+              transform: hovered ? "translateX(0%)" : "translateX(105%)",
+              opacity: hovered ? 1 : 0,
+            }}
           />
+
+          {/* Frosted info bar — always visible */}
           <div
-            className="glow-card absolute bottom-6 left-6 right-6 rounded-lg border p-3.5 backdrop-blur-xl"
+            className="glow-card absolute bottom-6 left-6 right-6 z-10 rounded-lg border p-3.5 backdrop-blur-xl"
             style={{
               backgroundColor: "color-mix(in srgb, var(--surface) 82%, transparent)",
               borderColor: "var(--border)",
             }}
           >
-            <p className="text-sm font-semibold">Available for focused product work</p>
+            <p className="text-sm font-semibold">Available for focused product work
+              {/* {hovered ?":"Available"} */}
+            </p>
             <p className="mt-1 text-xs" style={{ color: "var(--text-secondary)" }}>
-              React, APIs, databases, and developer-friendly interfaces.
+              {hovered
+                ? "React, APIs, databases, and developer-friendly interfaces."
+                : "Sujit Kale · Full-Stack Developer"}
             </p>
           </div>
         </div>
